@@ -21,7 +21,7 @@ class RegistroController extends AbstractController
             $em->persist($user);
             $em->flush();
             $this->addFlash('exito', "Se ha registrado exitosamente :)");
-            return $this->redirectToRoute("app_registro");
+            return $this->redirectToRoute("registro");
         }
         return $this->render('registro/index.html.twig', [
             'controller_name' => 'RegistroController',
