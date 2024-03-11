@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Controller;
 
 use App\Entity\User;
@@ -11,17 +12,17 @@ use Symfony\Component\HttpFoundation\Request;
 class RegistroController extends AbstractController
 {
     #[Route('/registro', name: 'app_registro')]
-    public function index(Request $request): Response
+    public function index(Request_$request): Response
     {
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
             $em = $this->getDoctrine()->getManager();
-            $em->persist($user);
+            $em->persist($user)
             $em->flush();
-            $this->addFlash('exito', "Se ha registrado exitosamente :)");
-            return $this->redirectToRoute("app_registro");
+            $this->addFlash('exito', "Se ha registrado exitosamente :)")
+            return $this->redirectToRoute()
         }
         return $this->render('registro/index.html.twig', [
             'controller_name' => 'RegistroController',
